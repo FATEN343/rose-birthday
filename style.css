@@ -1,0 +1,1542 @@
+/* ==========================================
+   🌷 ROSE'S BIRTHDAY WEBSITE 🌷
+   Best Friend Edition
+========================================== */
+
+:root {
+    --pink: #ff6f9f;
+    --hot-pink: #ff4f87;
+    --light-pink: #ffc4d9;
+    --soft-pink: #ffe5ee;
+    --blush: #fff5f8;
+    --rose: #d94f7d;
+    --cream: #fffaf7;
+    --text: #5a3040;
+    --white: #ffffff;
+
+    --glass: rgba(255, 255, 255, 0.62);
+    --border: rgba(255, 255, 255, 0.85);
+
+    --shadow: 0 15px 40px rgba(190, 75, 115, 0.16);
+}
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff5f8,
+            #ffe4ed,
+            #fff8f5,
+            #ffdce8
+        );
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   ANIMATED BACKGROUND
+========================================== */
+
+.gradient-bg {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -3;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 182, 207, 0.65),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255, 214, 228, 0.8),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(255, 194, 214, 0.6),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff8fa,
+            #ffe5ee,
+            #fff5f8
+        );
+
+    background-size: 200% 200%;
+
+    animation: softBackground 12s ease infinite;
+}
+
+
+@keyframes softBackground {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* ==========================================
+   PARTICLES
+========================================== */
+
+#particles {
+
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+
+.particle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: rgba(255, 111, 159, 0.35);
+
+    animation: floatUp linear infinite;
+
+}
+
+
+@keyframes floatUp {
+
+    from {
+
+        transform:
+            translateY(100vh)
+            scale(0.7);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: 0.8;
+
+    }
+
+    to {
+
+        transform:
+            translateY(-100px)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ==========================================
+   FLOATING HEARTS
+========================================== */
+
+#hearts-container {
+
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: -1;
+
+}
+
+
+.heart {
+
+    position: absolute;
+
+    color: var(--pink);
+
+    animation: heartFloat linear infinite;
+
+    opacity: 0.65;
+
+    filter:
+        drop-shadow(
+            0 3px 5px
+            rgba(217, 79, 125, 0.15)
+        );
+
+}
+
+
+@keyframes heartFloat {
+
+    from {
+
+        transform:
+            translateY(100vh)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 0.7;
+
+    }
+
+    to {
+
+        transform:
+            translateY(-100px)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ==========================================
+   GLASS
+========================================== */
+
+.glass {
+
+    background: var(--glass);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 30px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    text-align: center;
+
+}
+
+
+.hero-content {
+
+    max-width: 900px;
+
+    padding: 55px 40px;
+
+    background:
+        rgba(255, 255, 255, 0.42);
+
+    border-radius: 40px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(217, 79, 125, 0.13);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.8);
+
+}
+
+
+.welcome-text {
+
+    font-size: 1.25rem;
+
+    color: var(--rose);
+
+    margin-bottom: 10px;
+
+    font-weight: 500;
+
+}
+
+
+.name-title {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 7rem;
+
+    color: var(--hot-pink);
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 5px 20px
+        rgba(255, 79, 135, 0.2);
+
+    animation: nameGlow 3s ease-in-out infinite;
+
+}
+
+
+@keyframes nameGlow {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.03);
+
+    }
+
+}
+
+
+.hero-message {
+
+    font-size: 1.3rem;
+
+    line-height: 1.8;
+
+    color: var(--text);
+
+    margin-bottom: 35px;
+
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.primary-btn,
+.quiz-options button,
+.music-btn {
+
+    border: none;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+.primary-btn {
+
+    padding: 17px 38px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--hot-pink),
+            var(--pink)
+        );
+
+    color: white;
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 25px
+        rgba(255, 79, 135, 0.25);
+
+}
+
+
+.primary-btn:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255, 79, 135, 0.3);
+
+}
+
+
+/* ==========================================
+   MUSIC
+========================================== */
+
+.music-btn {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    z-index: 999;
+
+    padding: 12px 20px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.8);
+
+    color: var(--rose);
+
+    border:
+        1px solid
+        rgba(255, 111, 159, 0.25);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(190, 75, 115, 0.12);
+
+}
+
+
+.music-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: white;
+
+}
+
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+.section {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 90px 0;
+
+}
+
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 18px;
+
+    font-size: 2.5rem;
+
+    color: var(--rose);
+
+}
+
+
+.section-subtitle {
+
+    text-align: center;
+
+    margin-bottom: 45px;
+
+    color: #8d5a6b;
+
+    font-size: 1rem;
+
+}
+
+
+.hidden {
+
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+}
+
+
+.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    transition:
+        1s ease;
+
+}
+
+
+/* ==========================================
+   LETTER
+========================================== */
+
+.card {
+
+    padding: 45px;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    background:
+        rgba(255,255,255,0.65);
+
+}
+
+
+.card h2 {
+
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    color: var(--rose);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size: 3rem;
+
+}
+
+
+#typingText {
+
+    line-height: 2;
+
+    font-size: 1.05rem;
+
+    color: #603b49;
+
+    white-space: pre-line;
+
+}
+
+
+/* ==========================================
+   COUNTDOWN
+========================================== */
+
+.countdown-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    padding: 40px;
+
+}
+
+
+.count-item {
+
+    width: 140px;
+
+    height: 140px;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.65);
+
+    border:
+        1px solid
+        rgba(255,111,159,0.12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow:
+        0 10px 25px
+        rgba(190,75,115,0.08);
+
+}
+
+
+.count-item span {
+
+    font-size: 2.8rem;
+
+    font-weight: 700;
+
+    color: var(--hot-pink);
+
+}
+
+
+.count-item small {
+
+    margin-top: 8px;
+
+    color: #8d5a6b;
+
+}
+
+
+/* ==========================================
+   GALLERY
+========================================== */
+
+.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 25px;
+
+}
+
+
+.gallery-item {
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    background: white;
+
+    padding: 6px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(190,75,115,0.12);
+
+}
+
+
+.gallery-item img {
+
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 20px;
+
+    transition:
+        transform 0.5s ease;
+
+}
+
+
+.gallery-item:hover img {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+/* ==========================================
+   BESTIE CARDS
+========================================== */
+
+.cards-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 25px;
+
+}
+
+
+.love-card {
+
+    padding: 40px;
+
+    min-height: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    font-size: 1.25rem;
+
+    line-height: 1.6;
+
+    cursor: pointer;
+
+    transition:
+        all 0.35s ease;
+
+    color: var(--rose);
+
+    background:
+        rgba(255,255,255,0.65);
+
+}
+
+
+.love-card:hover {
+
+    transform:
+        translateY(-10px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 20px 40px
+        rgba(190,75,115,0.16);
+
+    background:
+        rgba(255,255,255,0.85);
+
+}
+
+
+.love-message-box {
+
+    max-width: 700px;
+
+    min-height: 120px;
+
+    margin: 40px auto 0;
+
+    padding: 30px;
+
+    text-align: center;
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--rose);
+
+}
+
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.timeline {
+
+    position: relative;
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+.timeline::after {
+
+    content: '';
+
+    position: absolute;
+
+    width: 4px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--light-pink),
+            var(--hot-pink),
+            var(--light-pink)
+        );
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.timeline-item {
+
+    width: 50%;
+
+    position: relative;
+
+    padding: 20px 40px;
+
+}
+
+
+.timeline-item.left {
+
+    left: 0;
+
+}
+
+
+.timeline-item.right {
+
+    left: 50%;
+
+}
+
+
+.timeline-content {
+
+    padding: 28px;
+
+    background:
+        rgba(255,255,255,0.65);
+
+}
+
+
+.timeline-content h3 {
+
+    color: var(--rose);
+
+    margin-bottom: 8px;
+
+}
+
+
+.timeline-content p {
+
+    color: #805466;
+
+}
+
+
+.timeline-item::after {
+
+    content: '🌷';
+
+    width: 30px;
+
+    height: 30px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 27px;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 16px;
+
+}
+
+
+.timeline-item.left::after {
+
+    right: -15px;
+
+}
+
+
+.timeline-item.right::after {
+
+    left: -15px;
+
+}
+
+
+/* ==========================================
+   QUIZ
+========================================== */
+
+.quiz-card {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 45px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.65);
+
+}
+
+
+.quiz-card h2 {
+
+    color: var(--rose);
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size: 3rem;
+
+    margin-bottom: 20px;
+
+}
+
+
+.quiz-card h3 {
+
+    color: #633d4c;
+
+}
+
+
+.quiz-options {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
+.quiz-options button {
+
+    padding: 15px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,111,159,0.12);
+
+    color: var(--rose);
+
+    border:
+        1px solid
+        rgba(255,111,159,0.2);
+
+    font-size: 1rem;
+
+}
+
+
+.quiz-options button:hover {
+
+    background: var(--hot-pink);
+
+    color: white;
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+#quizResult {
+
+    margin-top: 25px;
+
+    font-size: 1.15rem;
+
+    color: var(--rose);
+
+}
+
+
+/* ==========================================
+   GIFT
+========================================== */
+
+.gift-box {
+
+    text-align: center;
+
+    font-size: 7rem;
+
+    cursor: pointer;
+
+    animation:
+        giftBounce 2s infinite;
+
+}
+
+
+@keyframes giftBounce {
+
+    0%, 100% {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+    }
+
+    25% {
+
+        transform:
+            translateY(-10px)
+            rotate(5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+    }
+
+    75% {
+
+        transform:
+            translateY(-10px)
+            rotate(-5deg);
+
+    }
+
+}
+
+
+#giftMessage {
+
+    max-width: 800px;
+
+    margin: 40px auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.7);
+
+}
+
+
+#giftMessage h2 {
+
+    color: var(--rose);
+
+    margin-bottom: 20px;
+
+}
+
+
+#giftMessage p {
+
+    line-height: 2;
+
+    color: #603b49;
+
+}
+
+
+/* ==========================================
+   FINAL SCREEN
+========================================== */
+
+.final-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f5,
+            #ffd5e3,
+            #fff7f9
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+.final-screen.hidden {
+
+    display: none;
+
+}
+
+
+.final-screen h1 {
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size: 6rem;
+
+    color: var(--hot-pink);
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 8px 25px
+        rgba(255,79,135,0.2);
+
+}
+
+
+.final-screen h2 {
+
+    font-size: 1.7rem;
+
+    color: var(--rose);
+
+    line-height: 1.8;
+
+}
+
+
+/* ==========================================
+   LIGHTBOX
+========================================== */
+
+.lightbox {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(90,48,64,0.92);
+
+    z-index: 99999;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.lightbox img {
+
+    max-width: 90%;
+
+    max-height: 90%;
+
+    border-radius: 25px;
+
+    border:
+        7px solid white;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.25);
+
+}
+
+
+#closeLightbox {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 30px;
+
+    font-size: 3rem;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+/* ==========================================
+   MEMORY MODAL
+========================================== */
+
+.memory-modal {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(90,48,64,0.92);
+
+    z-index: 10000;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    padding: 30px;
+
+}
+
+
+.memory-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px,1fr)
+        );
+
+    gap: 20px;
+
+    width: 90%;
+
+    max-width: 1000px;
+
+}
+
+
+.memory-gallery img {
+
+    width: 100%;
+
+    border-radius: 20px;
+
+    max-height: 350px;
+
+    object-fit: cover;
+
+    border:
+        5px solid white;
+
+}
+
+
+#closeMemoryModal {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 30px;
+
+    font-size: 3rem;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #9b6276;
+
+    font-size: 0.9rem;
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+
+        padding: 20px;
+
+    }
+
+
+    .hero-content {
+
+        padding: 45px 25px;
+
+    }
+
+
+    .name-title {
+
+        font-size: 4.5rem;
+
+    }
+
+
+    .welcome-text {
+
+        font-size: 1rem;
+
+    }
+
+
+    .hero-message {
+
+        font-size: 1.05rem;
+
+    }
+
+
+    .section {
+
+        padding: 60px 0;
+
+    }
+
+
+    .section-title {
+
+        font-size: 2rem;
+
+    }
+
+
+    .card {
+
+        padding: 28px 22px;
+
+    }
+
+
+    .card h2 {
+
+        font-size: 2.5rem;
+
+    }
+
+
+    #typingText {
+
+        font-size: 0.95rem;
+
+        line-height: 1.8;
+
+    }
+
+
+    .timeline::after {
+
+        left: 20px;
+
+    }
+
+
+    .timeline-item {
+
+        width: 100%;
+
+        padding-left: 60px;
+
+        padding-right: 5px;
+
+    }
+
+
+    .timeline-item.right {
+
+        left: 0;
+
+    }
+
+
+    .timeline-item.left::after,
+    .timeline-item.right::after {
+
+        left: 5px;
+
+    }
+
+
+    .count-item {
+
+        width: 110px;
+
+        height: 110px;
+
+    }
+
+
+    .count-item span {
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .final-screen h1 {
+
+        font-size: 3.5rem;
+
+    }
+
+
+    .final-screen h2 {
+
+        font-size: 1.1rem;
+
+    }
+
+
+    .music-btn {
+
+        top: 15px;
+
+        right: 15px;
+
+        font-size: 0.8rem;
+
+        padding: 10px 14px;
+
+    }
+
+}
